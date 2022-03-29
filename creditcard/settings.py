@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +55,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'creditcard.urls'
+
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'http://127.0.0.1:8000',
+  'http://localhost:3000',
+  'https://creditcard20.herokuapp.com',
+)
+
 
 TEMPLATES = [
     {
@@ -123,7 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static"),
 ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
