@@ -1,1 +1,1 @@
-web: gunicorn creditcard.wsgi
+web: gunicorn creditcard.wsgi --log-file -
